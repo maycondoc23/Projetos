@@ -1,0 +1,38 @@
+{% extends "management/index.html" %}
+
+{% load static %}
+
+{% block content %}
+<div style="
+width: 50%;
+padding: 50px;
+margin: auto;
+border-radius: 30px;
+background: white;
+">
+    <h3>excluir</h3>
+    <div>
+    <p class="lead" style="font-size:50px">
+        confirme para excluir o registro.
+    </p>
+
+    <hr>
+    
+    <form action="" method="POST" >
+        
+        <p style="font-size:30px"> 
+            Deseja excluir o registro: <b>  {{ object }} </b> ?
+        </p>
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-danger"> Excluir</button>
+        <a href="/./">cancelar</a>
+    </div>
+</div>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+.pending {
+    color: red;
+  }
+  
+.completed {
+    color: green;
+  }
+
+.table-wrapper {
+    max-height: 200px;
+    overflow: scroll;
+}
+

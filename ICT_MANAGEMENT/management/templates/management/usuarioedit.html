@@ -1,0 +1,18 @@
+{% extends "management/home.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+<link href= {% static "css/form.css" %} rel="stylesheet" />
+
+  <title> REGISTER </title>
+  <form id="newuser"  method="post">
+    <span id="titlereg"  class="login100-form-title p-b-26">Cadastrar Usuario</span>
+
+    {% csrf_token %}
+    {{ form }}
+    <input id="cadastrar" type="submit" value="Cadastrar">
+
+  {% endblock %}

@@ -1,0 +1,102 @@
+{% extends "management/index.html" %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="page-header">
+      <h3 class="page-title"> Dashboard </h3>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">data information NEO50s</h4>
+          </div>
+          <div >
+            <canvas id="n50schart"></canvas>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-lg-4 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">data information M75</h4>
+          </div>
+          <div >
+            <canvas id="m75chart"></canvas>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-lg-4 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">data information IDEAPAD3I</h4>
+            <div >
+              <canvas id="ideapad3ichart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">data information IDEAPAD3A</h4>
+            <div >
+              <canvas id="ideapad3achart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div><div class="col-lg-4 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">data information IDEAPAD1</h4>
+            <div >
+              <canvas id="ideapad1chart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">data information E14</h4>
+            <div >
+              <canvas id="e14chart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+  <!-- content-wrapper ends -->
+  <!-- partial:../../partials/_footer.html -->
+  
+  <!-- partial -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src= {% static "js/chart.js" %}></script>
+   
+  <script>
+
+    window.onload = function(event){
+
+      n50schart('{%url "n50schart" %}')
+      m75chart('{%url "m75chart" %}')
+      ideapad3ichart('{%url "ideapad3ichart" %}')
+      ideapad3achart('{%url "ideapad3achart" %}')
+      ideapad1chart('{%url "ideapad1chart" %}')
+      e14chart('{%url "e14chart" %}')
+
+    }
+
+  </script>
+
+  
+  {% endblock %}

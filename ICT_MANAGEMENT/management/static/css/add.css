@@ -1,0 +1,22 @@
+.btn-primary:not(.btn-light) {
+    color: #ffffff;
+    width: 100%;
+}
+
+.sidebar .nav .nav-item.nav-category .nav-link {
+    color: seagreen;
+    padding: 1rem 0 1.125rem;
+}
+.navbar .navbar-menu-wrapper {
+    transition: width 0.25s ease;
+    -webkit-transition: width 0.25s ease;
+    -moz-transition: width 0.25s ease;
+    -ms-transition: width 0.25s ease;
+    color: #111111;
+    padding-left: 24px;
+    padding-right: 24px;
+    width: calc(100% - 240px);
+    height: 70px;
+    -webkit-box-shadow: 0px 1px 5px rgb(0 0 0 / 11%);
+    box-shadow: 0px 20px 3px rgb(0 0 0 / 11%);
+}

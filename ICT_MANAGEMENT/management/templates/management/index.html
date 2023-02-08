@@ -1,0 +1,431 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+  <head></head>
+    <title>ICT Admin</title>
+    <link rel="stylesheet" href= {% static "vendors/simple-line-icons/css/simple-line-icons.css" %}>
+    <link rel="stylesheet" href= {% static "vendors/flag-icon-css/css/flag-icon.min.css" %}>
+    <link rel="stylesheet" href= {% static "vendors/css/vendor.bundle.base.css" %}>
+    <link rel="stylesheet" href= {% static "vendors/daterangepicker/daterangepicker.css" %}>
+    <link rel="stylesheet" href= {% static "vendors/chartist/chartist.min.css" %}>
+    <link rel="stylesheet" href= {% static "css/add.css" %}>
+    <link rel="stylesheet" href= {% static "css/styles.css" %}>
+    <link rel="shortcut icon" href={% static "images/favicon.png" %} />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        </div> 
+        <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
+          <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome {{ request.user }},  {% now "SHORT_DATETIME_FORMAT" %}</h5>
+          <ul class="navbar-nav navbar-nav-right ml-auto">
+
+            <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
+              <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                <img class="img-xs rounded-circle ml-2" src= {% static "images/faces/face.jpg" %} alt="Profile image"> <span class="font-weight-normal"> {{ request.user }} </span></a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                <div class="dropdown-header text-center">
+                  <img class="img-md rounded-circle" src={% static "images/faces/face.jpg" %} alt="Profile image">
+                  <p class="mb-1 mt-3">{{ request.user }}</p>
+                  <p class="mb-1 mt-3">{{request.user.email}}</p>
+                </div>
+                <a class="dropdown-item" href="usuarioedit" ><i class="dropdown-item-icon icon-user text-primary"> </i>Alterar Senha</a>
+                <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+              </div>
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="icon-menu"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item nav-profile">
+              <a href="#" class="nav-link">
+                <div class="profile-image">
+                  <img class="img-xs rounded-circle" src= {% static "images/faces/face.jpg" %} alt="profile image">
+                  <div class="dot-indicator bg-success" style="margin: 15px 6px 0 0;"></div>
+                </div>
+                <div class="text-wrapper">
+                  <p class="profile-name">{{ request.user }}</p>
+                </div>
+                <div class="icon-container">
+                </div>
+              </a>
+            </li>
+            <li class="nav-item nav-category">
+              <span class="nav-link" style="color: seagreen;">Dashboard</span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="..">
+                <span class="menu-title">Dashboard</span>
+                <i class="icon-screen-desktop menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item nav-category" ><span class="nav-link"  style="color: seagreen;">Gerenciamento De Testes</span></li>
+            <li class="nav-item">
+              
+                <a class="btn btn-secondary" id="menu1"data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">ICT 01</a>
+                <button class="btn btn-secondary" id="menu2" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">ICT 02</button>
+                <button class="btn btn-secondary" id="menu3" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">ICT 03</button>
+<!-- ICT01 -->
+              <div class="row" id="optionsbar">
+                <div class="col">
+                  <div class="collapse multi-collapse" id="multiCollapseExample1">
+                    <a class="nav-link" id="options" href="ict1statusneo">
+                      <span class="title">Neo50sﾠﾠﾠﾠ</span>
+                      <i class="icon-screen-desktop menu-icon"></i>
+                    </a> 
+                  </div>
+                
+                  <div class="collapse multi-collapse" id="multiCollapseExample1">
+                    <a class="nav-link" id="options" href="ict1statusm75">
+                      <span class="title">M75ﾠﾠﾠﾠﾠﾠﾠ </span>
+                      <i class="icon-screen-desktop menu-icon"></i>
+                    </a> 
+                  </div>
+                
+                  <div class="collapse multi-collapse" id="multiCollapseExample1">
+                    <a class="nav-link" id="options" href="ict1statusideapad3i">
+                      <span class="title">Ideapad3iﾠﾠ  </span>
+                      <i class="icon-screen-desktop menu-icon"></i>
+                    </a> 
+                  </div>
+                  <div class="collapse multi-collapse" id="multiCollapseExample1">
+                    <a class="nav-link" id= "options" href="ict1statusideapad3a">
+                      <span class="title">Ideapad3aﾠ  </span>
+                      <i class="icon-screen-desktop menu-icon"></i>
+                    </a> 
+                  </div>
+                  <div class="collapse multi-collapse" id="multiCollapseExample1">
+                    <a class="nav-link" id= "options" href="ict1statusideapad1">
+                      <span class="title">Sagittaﾠﾠﾠﾠ</span>
+                      <i class="icon-screen-desktop menu-icon"></i>
+                    </a> 
+                  </div>
+                  
+                </div>
+                <div class="collapse multi-collapse" id="multiCollapseExample1">
+                  <a class="nav-link" id= "options" href="ict1statuse14">
+                    <span class="title">E14ﾠﾠﾠﾠﾠﾠﾠ</span>
+                    <i class="icon-screen-desktop menu-icon"></i>
+                  </a> 
+                </div>
+<!-- ICT02 -->
+                <div class="col">
+                  <div class="collapse multi-collapse" id="multiCollapseExample2">
+                    <a class="nav-link" id= "options" href="ict2statusneo">
+                      <span class="title">Neo50sﾠﾠﾠﾠ</span>
+                      <i class="icon-screen-desktop menu-icon"></i>
+                    </a> 
+                  </div>
+
+                  <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapseExample2">
+                      <a class="nav-link" id= "options" href="ict2statusm75">
+                        <span class="title">M75ﾠﾠﾠﾠﾠﾠﾠ</span>
+                        <i class="icon-screen-desktop menu-icon"></i>
+                      </a> 
+                    </div>
+
+
+                      <div class="col">
+                        <div class="collapse multi-collapse" id="multiCollapseExample2">
+                          <a class="nav-link" id= "options" href="ict2statusideapad3i">
+                            <span class="title">Ideapad3iﾠﾠ</span>
+                            <i class="icon-screen-desktop menu-icon"></i>
+                          </a> 
+                        </div>
+        
+                        <div class="col">
+                          <div class="collapse multi-collapse" id="multiCollapseExample2">
+                            <a class="nav-link" id= "options" href="ict2statusideapad3a">
+                              <span class="title">Ideapad3aﾠ</span>
+                              <i class="icon-screen-desktop menu-icon"></i>
+                            </a> 
+                          </div>
+          
+                          <div class="col">
+                            <div class="collapse multi-collapse" id="multiCollapseExample2">
+                              <a class="nav-link" id= "options" href="ict2statusideapad1">
+                                <span class="title">Sagittaﾠﾠﾠﾠ</span>
+                                <i class="icon-screen-desktop menu-icon"></i>
+                              </a> 
+                            </div>
+            
+                            <div class="col">
+                              <div class="collapse multi-collapse" id="multiCollapseExample2">
+                                <a class="nav-link" id= "options" href="ict2statuse14">
+                                  <span class="title">E14ﾠﾠﾠﾠﾠﾠﾠ</span>
+                                  <i class="icon-screen-desktop menu-icon"></i>
+                                </a> 
+                              </div>
+<!--  ICT03-->
+                  <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapseExample3">
+                      <a class="nav-link" id= "options" href="ict3statusneo">
+                        <span class="title">Neo50sﾠﾠﾠﾠ</span>
+                        <i class="icon-screen-desktop menu-icon"></i>
+                      </a> 
+                    </div>
+  
+                    <div class="col">
+                      <div class="collapse multi-collapse" id="multiCollapseExample3">
+                        <a class="nav-link" id= "options" href="ict3statusm75">
+                          <span class="title">M75ﾠﾠﾠﾠﾠﾠﾠ</span>
+                          <i class="icon-screen-desktop menu-icon"></i>
+                        </a> 
+                      </div>
+  
+                      <div class="col">
+                        <div class="collapse multi-collapse" id="multiCollapseExample3">
+                          <a class="nav-link" id= "options" href="ict3statusideapad3i">
+                            <span class="title">Ideapad3iﾠﾠ</span>
+                            <i class="icon-screen-desktop menu-icon"></i>
+                          </a> 
+                        </div>
+
+                        <div class="col">
+                          <div class="collapse multi-collapse" id="multiCollapseExample3">
+                            <a class="nav-link" id= "options" href="ict3statusideapad3a">
+                              <span class="title">Ideapad3aﾠ</span>
+                              <i class="icon-screen-desktop menu-icon"></i>
+                            </a> 
+                          </div>
+  
+                          <div class="col">
+                            <div class="collapse multi-collapse" id="multiCollapseExample3">
+                              <a class="nav-link" id= "options" href="ict3statusideapad1">
+                                <span class="title">Sagittaﾠﾠﾠﾠ</span>
+                                <i class="icon-screen-desktop menu-icon"></i>
+                              </a> 
+                            </div>
+  
+                            <div class="col">
+                              <div class="collapse multi-collapse" id="multiCollapseExample3">
+                                <a class="nav-link" id= "options" href="ict3statuse14">
+                                  <span class="title">E14ﾠﾠﾠﾠﾠﾠﾠ</span>
+                                  <i class="icon-screen-desktop menu-icon"></i>
+                                </a> 
+                              </div>
+                </div>
+              </div>
+            </li>
+            
+            <li class="nav-item nav-category"><span class="nav-link"  style="color: seagreen;">Planilhas</span></li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth" >
+                <span class="menu-title">B.O.M</span>
+                <i class="icon-doc menu-icon"></i>
+              </a>
+              <div class="collapse" id="auth">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href=".">Neo50s</a></li>
+                  <li class="nav-item"> <a class="nav-link" href=".">M75</a></li>
+                  <li class="nav-item"> <a class="nav-link" href=".">Ideapad3i</a></li>
+                  <li class="nav-item"> <a class="nav-link" href=".">Ideapad3a</a></li>
+                  <li class="nav-item"> <a class="nav-link" href=".">Ideapad31</a></li>
+                  <li class="nav-item"> <a class="nav-link" href=".">e14</a></li>
+                </ul>
+              </div>
+              <li class="nav-item nav-category" ><span class="nav-link"  style="color: seagreen;">Tabelas De Registros</span></li>
+              <li class="nav-item">
+                
+                  <a class="btn btn-secondary" id="menu1"data-toggle="collapse" href="#multiCollapseExample4" role="button" aria-expanded="false" aria-controls="multiCollapseExample4">ICT 01</a>
+                  <button class="btn btn-secondary" id="menu2" type="button" data-toggle="collapse" data-target="#multiCollapseExample5" aria-expanded="false" aria-controls="multiCollapseExample5">ICT 02</button>
+                  <button class="btn btn-secondary" id="menu3" type="button" data-toggle="collapse" data-target="#multiCollapseExample6" aria-expanded="false" aria-controls="multiCollapseExample6">ICT 03</button>
+              <!-- ICT01 -->
+                <div class="row" id="optionsbar">
+                  <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapseExample4">
+                      <a class="nav-link" id="options" href="{% url 'n50sict1list' %}">
+                        <span class="title">Neo50sﾠﾠﾠﾠ</span>
+                        <i class="icon-screen-desktop menu-icon"></i>
+                      </a> 
+                    </div>
+                  
+                    <div class="collapse multi-collapse" id="multiCollapseExample4">
+                      <a class="nav-link" id="options" href="{% url 'm75ict1list' %}">
+                        <span class="title">M75ﾠﾠﾠﾠﾠﾠﾠ </span>
+                        <i class="icon-screen-desktop menu-icon"></i>
+                      </a> 
+                    </div>
+                  
+                    <div class="collapse multi-collapse" id="multiCollapseExample4">
+                      <a class="nav-link" id="options" href="{% url 'ideapad3iict1list'%}">
+                        <span class="title">Ideapad3iﾠﾠ  </span>
+                        <i class="icon-screen-desktop menu-icon"></i>
+                      </a> 
+                    </div>
+                    <div class="collapse multi-collapse" id="multiCollapseExample4">
+                      <a class="nav-link" id= "options" href="{% url 'ideapad3aict1list'%}">
+                        <span class="title">Ideapad3aﾠ  </span>
+                        <i class="icon-screen-desktop menu-icon"></i>
+                      </a> 
+                    </div>
+                    <div class="collapse multi-collapse" id="multiCollapseExample4">
+                      <a class="nav-link" id= "options" href="{% url 'ideapad1ict1list' %}">
+                        <span class="title">Sagittaﾠﾠﾠﾠ</span>
+                        <i class="icon-screen-desktop menu-icon"></i>
+                      </a> 
+                    </div>
+                    
+                  </div>
+                  <div class="collapse multi-collapse" id="multiCollapseExample4">
+                    <a class="nav-link" id= "options" href="{% url 'e14ict1list' %}">
+                      <span class="title">E14ﾠﾠﾠﾠﾠﾠﾠ</span>
+                      <i class="icon-screen-desktop menu-icon"></i>
+                    </a> 
+                  </div>
+  <!-- ICT02 -->
+                  <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapseExample5">
+                      <a class="nav-link" id= "options" href="{% url 'n50sict2list' %}">
+                        <span class="title">Neo50sﾠﾠﾠﾠ</span>
+                        <i class="icon-screen-desktop menu-icon"></i>
+                      </a> 
+                    </div>
+  
+                    <div class="col">
+                      <div class="collapse multi-collapse" id="multiCollapseExample5">
+                        <a class="nav-link" id= "options" href="{% url 'm75ict2list' %}">
+                          <span class="title">M75ﾠﾠﾠﾠﾠﾠﾠ</span>
+                          <i class="icon-screen-desktop menu-icon"></i>
+                        </a> 
+                      </div>
+  
+  
+                        <div class="col">
+                          <div class="collapse multi-collapse" id="multiCollapseExample5">
+                            <a class="nav-link" id= "options" href="{% url 'ideapad3iict2list'%}">
+                              <span class="title">Ideapad3iﾠﾠ</span>
+                              <i class="icon-screen-desktop menu-icon"></i>
+                            </a> 
+                          </div>
+          
+                          <div class="col">
+                            <div class="collapse multi-collapse" id="multiCollapseExample5">
+                              <a class="nav-link" id= "options" href="{% url 'ideapad3aict2list' %}">
+                                <span class="title">Ideapad3aﾠ</span>
+                                <i class="icon-screen-desktop menu-icon"></i>
+                              </a> 
+                            </div>
+            
+                            <div class="col">
+                              <div class="collapse multi-collapse" id="multiCollapseExample5">
+                                <a class="nav-link" id= "options" href="{% url 'ideapad1ict2list' %}">
+                                  <span class="title">Sagittaﾠﾠﾠﾠ</span>
+                                  <i class="icon-screen-desktop menu-icon"></i>
+                                </a> 
+                              </div>
+              
+                              <div class="col">
+                                <div class="collapse multi-collapse" id="multiCollapseExample5">
+                                  <a class="nav-link" id= "options" href="{% url 'e14ict2list' %}">
+                                    <span class="title">E14ﾠﾠﾠﾠﾠﾠﾠ</span>
+                                    <i class="icon-screen-desktop menu-icon"></i>
+                                  </a> 
+                                </div>
+                <!--  ICT03-->
+                    <div class="col">
+                      <div class="collapse multi-collapse" id="multiCollapseExample6">
+                        <a class="nav-link" id= "options" href="{% url 'n50sict3list' %}">
+                          <span class="title">Neo50sﾠﾠﾠﾠ</span>
+                          <i class="icon-screen-desktop menu-icon"></i>
+                        </a> 
+                      </div>
+    
+                      <div class="col">
+                        <div class="collapse multi-collapse" id="multiCollapseExample6">
+                          <a class="nav-link" id= "options" href="{% url 'm75ict3list'%}">
+                            <span class="title">M75ﾠﾠﾠﾠﾠﾠﾠ</span>
+                            <i class="icon-screen-desktop menu-icon"></i>
+                          </a> 
+                        </div>
+    
+                        <div class="col">
+                          <div class="collapse multi-collapse" id="multiCollapseExample6">
+                            <a class="nav-link" id= "options" href="{% url 'ideapad3iict3list'%}">
+                              <span class="title">Ideapad3iﾠﾠ</span>
+                              <i class="icon-screen-desktop menu-icon"></i>
+                            </a> 
+                          </div>
+  
+                          <div class="col">
+                            <div class="collapse multi-collapse" id="multiCollapseExample6">
+                              <a class="nav-link" id= "options" href="{% url 'ideapad3aict3list'%}">
+                                <span class="title">Ideapad3aﾠ</span>
+                                <i class="icon-screen-desktop menu-icon"></i>
+                              </a> 
+                            </div>
+    
+                            <div class="col">
+                              <div class="collapse multi-collapse" id="multiCollapseExample6">
+                                <a class="nav-link" id= "options" href="{% url 'ideapad1ict3list' %}">
+                                  <span class="title">Sagittaﾠﾠﾠﾠ</span>
+                                  <i class="icon-screen-desktop menu-icon"></i>
+                                </a> 
+                              </div>
+    
+                              <div class="col">
+                                <div class="collapse multi-collapse" id="multiCollapseExample6">
+                                  <a class="nav-link" id= "options" href="{%url 'e14ict3list'%}">
+                                    <span class="title">E14ﾠﾠﾠﾠﾠﾠﾠ</span>
+                                    <i class="icon-screen-desktop menu-icon"></i>
+                                  </a> 
+                                </div>
+    
+            </li>
+            </ul>
+        </nav>
+        {% block quickactions %}
+        
+        <div class="main-panel">
+          <div class="row quick-action-toolbar">
+              <div class="col-md-12 grid-margin">
+                <div class="card">
+                  <div class="card-header d-block d-md-flex">
+                    <h5 class="mb-0">Quick Actions</h5>
+                  </div>
+                  <div class="d-md-flex row m-0 quick-action-btns" role="group" aria-label="Quick action buttons">
+                    <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
+                      <button style="border: none;"> <a style="color:black;" href="admin"><i class="icon-badge mr-2"></i>Admin Area</a> </button>
+                    </div>
+                    <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
+                      <button style="border: none;"> <a style="color:black;" href="."><i class="icon-home mr-2"></i>Home</a> </button>
+                    </div>
+                    <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
+                      <button style="border: none;"> <a style="color:black;" href="usuariocreate"><i class="icon-user mr-2"></i>Adicionar Usuário </a> </button>
+                    </div>
+                    <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
+                      <button style="border: none;"> <a style="color:black;" href="{% url 'logout' %}">Logout </a> <i class="icon-logout mr-2"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+              <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+              {% endblock %}
+              
+              {% block content %}
+
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+    <script src= {% static "vendors/js/vendor.bundle.base.js" %}></script>
+    <script src= {% static "vendors/chart.js/Chart.min.js" %}></script>
+    <script src= {% static "vendors/moment/moment.min.js" %}></script>
+    <script src= {% static "vendors/daterangepicker/daterangepicker.js" %}></script>
+    <script src= {% static "vendors/chartist/chartist.min.js" %}></script>
+    <script src= {% static "js/off-canvas.js" %}></script>
+    <script src= {% static "js/misc.js" %}></script>
+    <script src= {% static "js/dashboardchart.js" %}></script>
+  </body>
+</html>

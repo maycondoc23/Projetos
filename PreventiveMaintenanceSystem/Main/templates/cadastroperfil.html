@@ -1,0 +1,64 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+
+{% block title %}
+<title> P.M.S Cadastrar Perfil</title>
+{%endblock%}
+<link href= {% static "css/cadastro.css" %} rel="stylesheet" />
+
+<div class="container my-auto">
+  <div class="row">
+    <div class="col-lg-4 col-md-8 col-12 mx-auto" style="overflow: scroll; margin-top: 10px; height: calc(120vh - 400px);">
+      <div class="card z-index-0 fadeIn3 fadeInBottom">
+        <div class="card-header p-0 position-relative mt-1 mx-3 z-index-2">
+          <div id="cadastro" class="bg-gradient-primary mt-2 shadow-primary border-radius-lg py-3 pe-1">
+            <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Cadastrar Perfil Maq.</h4>
+          </div>
+          <div class="card-body" >
+            <div >
+              <form id="formulario"  enctype='multipart/form-data' method="POST" style="width: 30%; margin: 0 auto; display: table-caption; align-self: center;">
+              {% csrf_token %}
+              {{ form }}
+               
+              <input id="att" class="btn btn-primary" type="submit" value="Cadastrar" style="margin-top: 5px;margin: 0 auto; display: flex;">
+              </form>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src= {% static  "js/script.js" %}></script>
+
+<script>
+  document.getElementById("search-input").addEventListener("input", function() {
+var searchValue = this.value.toLowerCase();
+var table = document.getElementById("minha-tabela");
+var rows = table.getElementsByTagName("tr");
+
+// Oculta todas as linhas (menos o cabeçalho)
+for (var i = 1; i < rows.length; i++) {
+    rows[i].style.display = "none";
+}
+
+// Mostra as linhas que possuem o valor da pesquisa
+for (var i = 1; i < rows.length; i++) {
+    var cells = rows[i].getElementsByTagName("td");
+    for (var j = 0; j < cells.length; j++) {
+        var cellValue = cells[j].textContent.toLowerCase();
+        if (cellValue.indexOf(searchValue) !== -1) {
+            rows[i].style.display = "";
+            break;
+        }
+    }
+}
+});
+</script>
+  {% endblock %}

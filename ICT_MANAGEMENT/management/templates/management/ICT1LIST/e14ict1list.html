@@ -1,0 +1,45 @@
+{% extends 'management/index.html' %}
+
+{% load static %}
+
+{% block quickactions %}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="table-responsive">
+    <h3 style="text-align-last: center; margin-top: 30px;" > Relação De Testes Removidos - ICT1 - E14 </h3>
+    <hr>
+    <table class= "table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Componente</th>
+                <th>Falha</th>
+                <th>Motivo</th>
+                <th>Data</th>
+                <th>options</th>
+            </tr>
+            {% for e14ict1 in object_list %}
+            <tr>
+                <td>{{ e14ict1.pk }}</td>
+                <td>{{ e14ict1.componente }}</td>
+                <td>{{ e14ict1.Falha }}</td>
+                <td>{{ e14ict1.Motivo }}</td>
+                <td>{{ e14ict1.data }}</td>
+                <td> <a href="{% url 'e14ict1del' e14ict1.pk %}" class="btn btn-danger btn-sm">Excluir</a> </td>
+            </tr>
+        </thead>
+
+        {% empty %}
+        <tr>
+            <td colspan="5">Nenhum Registro</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>
+
+
+{% endblock %}

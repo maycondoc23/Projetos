@@ -1,0 +1,21 @@
+{% extends "management/home.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+<link href= {% static "css/form.css" %} rel="stylesheet" />
+
+  <title> REGISTER </title>
+  <form id="formulario"  method="post">
+    <span id="title"  class="login100-form-title p-b-26">Atualização E14</span>
+    <h1>ATENÇÃO: AO REMOVER UM TESTE VOCÊ ESTARÁ:</h1>
+   
+    <h2>* Diminuindo a cobertura de teste.</h2>
+    <h3>* Aumentando as chances de passar defeito para FCT</h3>
+    {% csrf_token %}
+    {{ form }}
+    <input id="att" type="submit" value="atualizar">
+
+  {% endblock %}

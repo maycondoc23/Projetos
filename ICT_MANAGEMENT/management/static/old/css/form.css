@@ -1,0 +1,79 @@
+input, select, optgroup, textarea {
+    font-family: inherit;
+    line-height: inherit;
+    min-inline-size: -webkit-fill-available;
+    min-block-size: 45px;
+    height: 53px;
+    font-size: 19px;
+    scale: 0.95;
+    margin: auto -25px -1px;
+}
+
+
+#att {
+    cursor: pointer;
+    scale: 0.8;
+    background-color: rgb(4, 78, 28);
+    border: none;
+    border-radius: 47px;
+    height: 60px;
+    font-size: 30px;
+    font-family: ui-serif;
+    text-transform: uppercase;
+}
+#att:before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 0px;
+    height: 50px;
+    background: rgba(red, green, blue, alpha);
+    border-radius: 47px;
+    transition: all 2s ease;
+
+} 
+
+#att:hover:before {
+    width: 100%;
+}
+
+#formulario {
+    align-self: center;
+    border: solid;
+    width: 601px;
+    height: 713px;
+    margin: auto;
+    justify-content: end;
+    border-radius: 30px;
+    box-shadow: 0 0px 40px -6px rgb(0 0 0);
+    border: none;
+    padding: 69px 48px 80px 65px;
+}
+
+p{
+    scale: 0.92;
+    scale: 0.92;
+    margin-top: 10px;
+    margin-bottom: 7rem;
+    height: 0px;
+    font-size: 20px;
+}
+
+label {
+    left: 10px;
+    margin-left: -14px;
+    display: inline-block;
+    position: sticky;
+}
+
+
+.login100-form-title{
+    display: block;
+    font-family: Poppins-Bold;
+    font-size: 36px;
+    color: #333333;
+    line-height: 1.2;
+    text-align: center;
+    font-weight: bold;
+}

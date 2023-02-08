@@ -1,0 +1,75 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<link href={% static "styles/styles.css" %}rel="stylesheet" />
+<link href= {% static "css/cadastro.css" %} rel="stylesheet" />
+
+
+
+
+<div  class="table-responsive" style=
+    "height:calc(80vh - 100px);overflow:scroll; margin: 0 auto;"
+    > 
+    <h3 style="text-align-last: center; margin-top: 30px;" > Lista De Concluídas  </h3>
+    <hr>
+    
+
+    <table id="minha-tabela" class= "table table-striped thead-light">
+        <tr class="thead-light">
+                <th style="font-weight: 600;">ID</th>
+                <th style="font-weight: 600;">MAQUINA</th>
+                <th style="font-weight: 600;">TOTAL DE TAREFAS CONCLUIDAS</th>
+                <th style="font-weight: 600;">OPÇÕES</th>
+            </tr>
+        {% for maquina in maquinas %}
+            <tr>
+                <td>{{ maquina.pk }}</td>
+                <td>{{ maquina.nome }}</td>
+                <td>{{ maquina.num_tarefas_concluidas }}</td>
+                <td> <a href="{% url 'TaskList' maquina.pk %}"  class="btn btn-outline-info">LISTAR</a>
+            </tr>
+        </thead>
+
+        {% empty %}
+        <tr>
+            <td colspan="3">Nenhum Registro</td>
+        </tr>
+        {% endfor %}
+
+        
+    </table>
+</div>
+
+<script>
+      document.getElementById("search-input").addEventListener("input", function() {
+    var searchValue = this.value.toLowerCase();
+    var table = document.getElementById("minha-tabela");
+    var rows = table.getElementsByTagName("tr");
+
+    // Oculta todas as linhas (menos o cabeçalho)
+    for (var i = 1; i < rows.length; i++) {
+        rows[i].style.display = "none";
+    }
+
+    // Mostra as linhas que possuem o valor da pesquisa
+    for (var i = 1; i < rows.length; i++) {
+        var cells = rows[i].getElementsByTagName("td");
+        for (var j = 0; j < cells.length; j++) {
+            var cellValue = cells[j].textContent.toLowerCase();
+            if (cellValue.indexOf(searchValue) !== -1) {
+                rows[i].style.display = "";
+                break;
+            }
+        }
+    }
+});
+
+</script>
+
+{% endblock %}

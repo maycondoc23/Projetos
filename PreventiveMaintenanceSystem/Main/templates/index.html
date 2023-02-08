@@ -1,0 +1,249 @@
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    {% block title %}
+    <title>Preventive Maintenance System</title>
+    {%endblock%}
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <link href={% static "styles/material-dashboard.css" %} rel="stylesheet" />
+    <link href={% static "styles/material-dashboard.css.map"%} rel="stylesheet" />
+    <link href={% static "styles/material-dashboard.min.css"%} rel="stylesheet" />
+    <link href={% static "styles/nucleo-icons.css" %}rel="stylesheet" />
+    <link href={% static "styles/nucleo-svg.css" %}rel="stylesheet" />
+    <link href={% static "styles/styles.css" %}rel="stylesheet" />
+    <link href={% static "styles/nucleo-svg.css" %} rel="stylesheet" />
+    <link href={% static "css/cadastro.css" %} rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+</head>
+<body style="background-color: #f0f2f5; height: calc(120vh - 100px);
+  overflow: scroll;
+" >
+    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark ps" id="sidenav-main">
+        <div class="sidenav-header" style="display: flex;">
+          <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+          <aside class="navbar-brand m-0" href="#" >
+            <img style="width: 100%; height: 100%; max-width: 100%; max-height: 100%;" src={% static "img/logo.png" %} class="navbar-brand-img h-100" alt="main_logo"></aside>
+          <div>
+            <span><h1 style="font-size: 28px; font-style: italic; margin-left: 2px; color: #64ff64 ;margin-top: 30px; line-height: 0px;">Preventive</h1></span>
+            <h2 class="ms-1 font-weight-bold text-white" style="font-size: 15px;">Maintenance System</h2>
+          </div>
+          </a>
+
+        </div>
+        <hr class="horizontal light mt-0 mb-2">
+        <div class="collapse navbar-collapse w-auto ps ps--active-x ps--active-y" id="sidenav-collapse-main">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home'%}">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                 <span class="material-icons">app_registration</span>
+                </div>
+                <span class="nav-link-text ms-1">Home</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                 <span class="material-icons">precision_manufacturing</span>
+                </div>
+                <span class="nav-link-text ms-1">Visão Geral</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white " href="{% url 'MachineListC' %}">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">precision_manufacturing</i>
+                </div>
+                <span class="nav-link-text ms-1">Manutenções Concluidas</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white " href="{% url 'MachineListP' %}">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">precision_manufacturing</i>
+                </div>
+                <span class="nav-link-text ms-1">Manutenções Pendentes</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white " href="{% url 'cadastro_maquina' %}">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">view_in_ar</i>
+                </div>
+                <span class="nav-link-text ms-1">Cadastro De Maq/Man</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white " href="{% url 'cadastro_tarefa' %}">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">view_in_ar</i>
+                </div>
+                <span class="nav-link-text ms-1">Cadastro De Tarefas</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white " href="{% url 'cadastroperfil' %}">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">view_in_ar</i>
+                </div>
+                <span class="nav-link-text ms-1">Cadastro De Perfil Maq.</span>
+              </a>
+            </li>
+            <li class="nav-item">
+            </li>
+
+            <li class="nav-item mt-3">
+              <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Dados Complementares</h6>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white " href="{% url 'machinedatalist' %}">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">person</i>
+                </div>
+                <span class="nav-link-text ms-1">Perfis Maquinários</span>
+              </a>
+            </li>
+          </ul>
+ 
+     
+          <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></aside>    
+          <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ps ps--active-y">
+            <!-- Navbar -->
+            <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
+              <div class="container-fluid py-1 px-3">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Pages/</li>
+                  </ol>
+                  <h6 class="font-weight-bolder mb-0">Manutenções Concluidas</h6>
+                </nav>
+                <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+                  <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                    <div class="input-group input-group-outline">
+                      <form>
+                        <input type="text" class="form-control" id="search-input" placeholder="Pesquisar" aria-label="font-weight-bolder">
+                      </form>
+                    </div>
+                  </div>
+                    </ul>
+                </div>
+              </div>
+            </nav>
+            <!-- End Navbar -->
+            <div class="container-fluid py-4">
+              <div class="row">
+                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                  <div class="card">
+                    <div class="card-header p-3 pt-2">
+                      <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                        <i class="material-icons opacity-10">task_alt</i>
+                      </div>
+                      <div class="text-end pt-1">
+                        <p style="font-weight:500" class="text-md mb-0 text-capitalize">Manutenções Concluidas</p>
+                        <h4 class="mb-0" id="card-totalconcluidas"></h4>
+                      </div>
+                    </div>
+                    <hr class="dark horizontal my-0">
+                    <div class="card-footer p-3">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                  <div class="card">
+                    <div class="card-header p-3 pt-2">
+                      <div class="icon icon-lg icon-shape bg-gradient-secondary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                        <i class="material-icons opacity-10">pending_actions</i>
+                      </div>
+                      <div class="text-end pt-1">
+                        <p style="font-weight:500" class="text-md mb-0 text-capitalize">Manutenções Pendentes</p>
+                        <h4 class="mb-0" id="card-totalpendentes"></h4>
+                      </div>
+                    </div>
+                    <hr class="dark horizontal my-0">
+                    <div class="card-footer p-3">
+                      <p class="mb-0"><span class="text-success text-md font-weight-bolder"></span></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                  <div class="card">
+                    <div class="card-header p-3 pt-2">
+                      <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                        <i class="material-icons opacity-10">app_registration</i>
+                      </div>
+                      <div class="text-end pt-1">
+                        <p style="font-weight:500" class="text-md mb-0 text-capitalize">Tarefas Cadastradas</p>
+                        <h4 class="mb-0" id="card-totaltarefas"></h4>
+                      </div>
+                    </div>
+                    <hr class="dark horizontal my-0">
+                    <div class="card-footer p-3">
+                    </div>
+                  </div>
+                </div> 
+                <div class="col-xl-3 col-sm-6">
+                  <div class="card">
+                    <div class="card-header p-3 pt-2">
+                      <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                        <i class="material-icons opacity-10">precision_manufacturing</i>
+                      </div>
+                      <div class="text-end pt-1">
+                        <p style="font-weight:500" class="text-md mb-0 text-capitalize" >Maquinas Cadastradas</p>
+                        <h4 class="mb-0" id="card-totalmachine"></h4>
+                      </div>
+                    </div>
+                    <hr class="dark horizontal my-0">
+                    <div class="card-footer p-3">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+              </div>
+              </footer>
+            </div>
+      </nav>
+      {% block content %}
+      {% endblock  %}
+    </body>
+
+  <script>
+      var links = document.querySelectorAll('.nav-link');
+      for (var i = 0; i < links.length; i++) {
+          links[i].addEventListener('click', function() {
+              var current = document.getElementsByClassName('.active');
+              current[0].className = current[0].className.replace('.active', '');
+              this.className += '.active';
+          });
+      }
+  </script>
+    
+    <script src={% static "/js/core/popper.min.js" %}></script>
+    <script src={% static "/js/core/bootstrap.min.js" %}></script>
+    <script src={% static "/js/plugins/perfect-scrollbar.min.js" %}></script>
+    <script src={% static "/js/plugins/smooth-scrollbar.min.js" %}></script>
+    <script>
+      var win = navigator.platform.indexOf('Win') > -1;
+      if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+          damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+      }
+    </script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src={% static "/js/material-dashboard.js"></script>
+    <script src= {% static  "js/script.js" %}></script>
+</html>

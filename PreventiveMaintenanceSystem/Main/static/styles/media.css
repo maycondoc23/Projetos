@@ -1,0 +1,7 @@
+/* condicao para responsividade funcionar */
+@media screen and (max-width: 1900px){
+    #responsive{
+        height: 700px;
+        overflow: scroll;
+    }    
+}
